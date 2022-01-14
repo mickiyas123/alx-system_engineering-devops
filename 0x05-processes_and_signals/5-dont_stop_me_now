@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script that terminates another shell script
+
+kill $(ps -eaf | grep "4-to_infinity_and_beyond" | awk '{print $2}')
