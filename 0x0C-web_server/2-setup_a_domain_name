@@ -1,0 +1,18 @@
+; <<>> DiG 9.16.1-Ubuntu <<>> alxdesign.tech
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 48162
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;alxdesign.tech.			IN	A
+
+;; ANSWER SECTION:
+alxdesign.tech.		28800	IN	A	34.148.38.180
+
+;; Query time: 392 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53)
+;; WHEN: ማክሰ ማርች 15 15:29:35 EAT 2022
+;; MSG SIZE  rcvd: 59
