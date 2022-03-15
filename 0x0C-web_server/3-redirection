@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# a script that configure your Nginx server so that /redirect_me is redirecting to another page
+sed -i 's.location /.location /redirect_me.' /etc/nginx/sites-available/default
+sed -i 's.try_files $uri $uri/ =404.return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4.' /etc/nginx/sites-available/default
