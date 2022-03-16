@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
-# a script that configure your Nginx server so that /redirect_me is redirecting to another page
-sed -i 's.location /.location /redirect_me.' /etc/nginx/sites-available/default
-sed -i 's.try_files $uri $uri/ =404.return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4.' /etc/nginx/sites-available/default
+# Bash script that install nginx listening on port 80
+# When querying Nginx at its root / with a GET request (requesting a page) using curl,
+#+ it will return a page that contains the string Hello World!
+#+  Nginx server is configured so that /redirect_me is redirecting to another page
+apt-get -y install nginx
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+sed -i "s.location /.location /redirect_me." /etc/nginx/sites-available/default
+sed -i "s|try_files.*|return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4|" /etc/nginx/sites-available/default
+service nginx restart
