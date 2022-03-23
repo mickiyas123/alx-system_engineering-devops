@@ -1,11 +1,4 @@
 #!/usr/bin/env bash
 # Ubuntu container’s Nginx installation
-
-# getting updates
-apt -y update
-
-# installing nginx, curl, new-tools
 apt -y install nginx
-
-# start nginx
 service nginx start
