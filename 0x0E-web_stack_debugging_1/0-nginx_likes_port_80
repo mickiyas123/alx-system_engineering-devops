@@ -6,8 +6,6 @@ apt -y update
 
 # installing nginx, curl, new-tools
 apt -y install nginx
-apt -y install curl
-apt -y install net-tools
 
 # start nginx
 service nginx start
