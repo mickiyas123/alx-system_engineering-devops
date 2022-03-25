@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Ubuntu container's Nginx installation
+apt -y install nginx
+sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
+nginx -s quit
