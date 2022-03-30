@@ -34,12 +34,16 @@ defaults
         errorfile 504 /etc/haproxy/errors/504.http
         errorfile 504 /etc/haproxy/errors/504.http
 
-frontend first
-        bind *:80
-        bind *:443 ssl crt /home/ubuntu/certificate.pem
-        http-request redirect scheme https unless { ssl_fc }
+frontend http
+        bind :80
+	http-request redirect scheme https unless { ssl_fc }
+        default_backend allservers
+
+frontend https
+        bind :443 ssl crt /etc/ssl/www.alxdesign.tech.pem
         default_backend allservers
 
 backend allservers
-        server 1529-web-01 34.148.38.180
-        server 1529-web-02 44.200.179.107
+        balance roundrobin
+        server 1529-web-01 34.148.38.180:80 check
+        server 1529-web-02 44.200.179.107:80 check
