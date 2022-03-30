@@ -3,30 +3,30 @@
 subdomainInfo () {
    if [ "$#" == 1 ]
    then
-       wwwsubdomain=$(dig www.alxdesign.tech | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $1}' | awk -F "." '{print $1}')
-       wwwrecordtype=$(dig www.alxdesign.tech | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $4}')
-       wwwdestination=$(dig www.alxdesign.tech | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $5}')
+       wwwsubdomain=$(dig www."$1" | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $1}' | awk -F "." '{print $1}')
+       wwwrecordtype=$(dig www."$1" | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $4}')
+       wwwdestination=$(dig www."$1" | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $5}')
 
-       lbsubdomain=$(dig lb-01.alxdesign.tech | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $1}' | awk -F "." '{print $1}')
-       lbrecordtype=$(dig lb-01.alxdesign.tech | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $4}')
-       lbdestination=$(dig lb-01.alxdesign.tech | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $5}')
+       lbsubdomain=$(dig lb-01."$1" | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $1}' | awk -F "." '{print $1}')
+       lbrecordtype=$(dig lb-01."$1" | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $4}')
+       lbdestination=$(dig lb-01."$1" | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $5}')
 
-       web1subdomain=$(dig web-01.alxdesign.tech | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $1}' | awk -F "." '{print $1}')
-       web1recordtype=$(dig web-01.alxdesign.tech | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $4}')
-       web1destination=$(dig web-01.alxdesign.tech | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $5}')
+       web1subdomain=$(dig web-01."$1" | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $1}' | awk -F "." '{print $1}')
+       web1recordtype=$(dig web-01."$1" | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $4}')
+       web1destination=$(dig web-01."$1" | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $5}')
 
-       web2subdomain=$(dig web-02.alxdesign.tech | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $1}' | awk -F "." '{print $1}')
-       web2recordtype=$(dig web-02.alxdesign.tech | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $4}')
-       web2destination=$(dig web-02.alxdesign.tech | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $5}')
+       web2subdomain=$(dig web-02."$1" | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $1}' | awk -F "." '{print $1}')
+       web2recordtype=$(dig web-02."$1" | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $4}')
+       web2destination=$(dig web-02."$1" | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $5}')
 
        echo "The subdomain $wwwsubdomain is a $wwwrecordtype record and points to $wwwdestination"
        echo "The subdomain $lbsubdomain is a $lbrecordtype record and points to $lbdestination"
        echo "The subdomain $web1subdomain is a $web1recordtype record and points to $web1destination"
        echo "The subdomain $web2subdomain is a $web2recordtype record and points to $web2destination"
     else
-        subdomain=$(dig "$2".alxdesign.tech | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $1}' | awk -F "." '{print $1}')
-        recordtype=$(dig "$2".alxdesign.tech | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $4}')
-        destination=$(dig "$2".alxdesign.tech | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $5}')
+        subdomain=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $1}' | awk -F "." '{print $1}')
+        recordtype=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $4}')
+        destination=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | grep 'IN' | awk '{print $5}')
 
         echo "The subdomain $subdomain is a $recordtype record and points to $destination"
     fi
