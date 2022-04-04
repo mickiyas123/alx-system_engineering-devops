@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Bash script that accepts one argument
+#+ the script runs the whoami command under the user passed as an argument
+su -c whoami $1
