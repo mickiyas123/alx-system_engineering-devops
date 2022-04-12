@@ -29,15 +29,15 @@ if __name__ == '__main__':
         if int(userId) == todo.get("userId"):
             allTasks += 1
             NewList = []
-            NewList.append(str(todo.get("userId")))
-            NewList.append(UserName)
-            NewList.append(str(todo.get("completed")))
-            NewList.append(todo.get("title"))
+            NewList.append('\"{}\"'.format(todo.get("userId")))
+            NewList.append('\"{}\"'.format(UserName))
+            NewList.append('\"{}\"'.format(todo.get("completed")))
+            NewList.append('\"{}\"'.format(todo.get("title")))
             rows.append(NewList)
             if todo.get("completed"):
                 completeTasks += 1
                 completeTasksList.append(todo.get("title"))
 
     with open(FileName, "w") as csvfile:
-        csvwriter = csv.writer(csvfile)
+        csvwriter = csv.writer(csvfile, quotechar="'")
         csvwriter.writerows(rows)
