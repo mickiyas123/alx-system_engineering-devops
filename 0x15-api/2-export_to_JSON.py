@@ -16,10 +16,8 @@ if __name__ == '__main__':
             .format(userId))
 
     EmployeeId = response.json().get("id")
-    EmployeeName = response.json().get("name")
     UserName = response.json().get("username")
     FileName = userId + "." + "json"
-    print(FileName)
 
     response1 = requests.get("https://jsonplaceholder.typicode.com/todos")
 
