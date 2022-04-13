@@ -27,7 +27,7 @@ if __name__ == '__main__':
                 TaskDict = {"username": user.get("username"),
                             "task": task.get("title"),
                             "completed": task.get("completed")}
-            TaskList.append(TaskDict)
+                TaskList.append(TaskDict)
         AllTask[user.get("id")] = TaskList
 
     with open(filename, "w") as jsonfile:
