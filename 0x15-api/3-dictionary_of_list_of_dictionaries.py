@@ -9,21 +9,26 @@ if __name__ == '__main__':
     import requests
     import sys
 
-    users = requests.get("https://jsonplaceholder.typicode.com/users")
-    users = users.json()
-    todos = requests.get('https://jsonplaceholder.typicode.com/todos')
-    todos = todos.json()
-    todoAll = {}
+    response = requests.get(
+            "https://jsonplaceholder.typicode.com/users")
+
+    response1 = requests.get("https://jsonplaceholder.typicode.com/todos")
+
+    users = response.json()
+    todos = response1.json()
+    filename = "todo_all_employees.json"
+
+    AllTask = {}
 
     for user in users:
-        taskList = []
+        TaskList = []
         for task in todos:
-            if task.get('userId') == user.get('id'):
-                taskDict = {"username": user.get('username'),
-                            "task": task.get('title'),
-                            "completed": task.get('completed')}
-                taskList.append(taskDict)
-        todoAll[user.get('id')] = taskList
+            if task.get("userId") == user.get('id'):
+                TaskDict = {"username": user.get("username"),
+                            "task": task.get("title"),
+                            "completed": task.get("completed")}
+            TaskList.append(TaskDict)
+        AllTask[user.get("id")] = TaskList
 
-    with open('todo_all_employees.json', mode='w') as jsonfile:
-        json.dump(todoAll, jsonfile)
+    with open(filename, "w") as jsonfile:
+        json.dump(AllTask, jsonfile)
