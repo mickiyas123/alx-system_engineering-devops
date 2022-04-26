@@ -8,14 +8,13 @@ def number_of_subscribers(subreddit):
        If an invalid subreddit is given, the function returns 0
     """
     import requests
-    import json
 
     base_url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
     response = requests.get(
             base_url,
             headers={'User-Agent': '0-subs:v0.0.0 (by /u/xyz_abc4890)'},
             allow_redirects=False)
-    if response.status_code > 200:
+    if response.status_code != 200:
         return 0
     else:
         response = response.json()
