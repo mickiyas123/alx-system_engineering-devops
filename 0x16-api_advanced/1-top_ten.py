@@ -19,7 +19,6 @@ def top_ten(subreddit):
             allow_redirects=False)
     if response.status_code != 200:
         print("None")
-        return
     else:
         response = response.json()
         for post in response.get("data").get("children"):
