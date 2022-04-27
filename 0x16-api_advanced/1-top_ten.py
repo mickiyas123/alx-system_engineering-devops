@@ -18,7 +18,8 @@ def top_ten(subreddit):
             headers={'User-Agent': '0-subs:v0.0.0 (by /u/xyz_abc4890)'},
             allow_redirects=False)
     if response.status_code != 200:
-        return 0
+        print("None")
+        return
     else:
         response = response.json()
         for post in response.get("data").get("children"):
