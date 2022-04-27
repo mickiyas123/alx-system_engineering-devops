@@ -12,7 +12,7 @@ def top_ten(subreddit):
     limit = 10
     root_url = "https://www.reddit.com/r"
 
-    base_url = "{}/{}/top/.json?limit={}".format(root_url, subreddit, limit)
+    base_url = "{}/{}/hot/.json?limit={}".format(root_url, subreddit, limit)
     response = requests.get(
             base_url,
             headers={'User-Agent': '0-subs:v0.0.0 (by /u/xyz_abc4890)'},
