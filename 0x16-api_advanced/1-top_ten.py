@@ -2,8 +2,8 @@
 """A module that queries the Reddit API"""
 
 
-def number_of_subscribers(subreddit):
-    """A function that returns the number of subscribers
+def top_ten(subreddit):
+    """A function that returns top 10 hot post of a subreddit
        (not active users, total subscribers) for a given subreddit.
        If an invalid subreddit is given, the function returns 0
     """
