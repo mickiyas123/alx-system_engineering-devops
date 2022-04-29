@@ -26,11 +26,8 @@ def recurse(subreddit, hot_list=[]):
         response = response.json()
         for item in response.get('data').get('children'):
             lst.append(item['kind'] + '_'  + item['data']['id'])
-        print(lst)
-        
-        #for post in response.get("data").get("children"):
-            #print(post.get("data").get("title"))
+        for post in response.get("data").get("children"):
+            print(post.get("data").get("title"))
     count = count + 1
-    print(count)
     
     recurse(subreeddit, lst)
