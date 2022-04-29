@@ -20,14 +20,16 @@ def recurse(subreddit, hot_list=[]):
             headers={'User-Agent': '0-subs:v0.0.0 (by /u/xyz_abc4890)'},
             allow_redirects=False)
     if response.status_code != 200:
-        print("None")
+        return "{}".format("None")
     else:
         lst = []
+        title_list = []
         response = response.json()
         for item in response.get('data').get('children'):
             lst.append(item['kind'] + '_'  + item['data']['id'])
         for post in response.get("data").get("children"):
-            print(post.get("data").get("title"))
+            title_list.append(post.get("data").get("title"))
+        return title_list
     count = count + 1
     
     recurse(subreeddit, lst)
